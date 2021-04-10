@@ -40,6 +40,7 @@ namespace Arif.Scripts
                         HandManager.instance.handController.canSelectCards = false;
                         break;
                     case LevelState.Finished:
+                        HandManager.instance.handController.canSelectCards = false;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(value), value, null);
@@ -58,7 +59,6 @@ namespace Arif.Scripts
         [HideInInspector]public List<int> handPile = new List<int>();
         [HideInInspector]public List<int> discardPile = new List<int>();
         
-        //todo Düşman AI
         //todo Level sistemi yap
         //todo Kartları düzenle
         
@@ -134,6 +134,12 @@ namespace Arif.Scripts
                 }
                 
             }
+        }
+
+        public void OnEnemyDeath()
+        {
+            CurrentLevelState = LevelState.Finished;
+            
         }
 
         public void DiscardHand()

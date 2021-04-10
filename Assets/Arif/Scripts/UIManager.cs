@@ -10,7 +10,7 @@ namespace Arif.Scripts
 
         public TextMeshProUGUI drawPileText;
         public TextMeshProUGUI discardPileText;
-        
+        public TextMeshProUGUI manaText;
         private void Awake()
         {
             instance = this;
@@ -20,6 +20,7 @@ namespace Arif.Scripts
         {
             drawPileText.text = $"Draw: {LevelManager.instance.drawPile.Count}";
             discardPileText.text = $"Discard: {LevelManager.instance.discardPile.Count}";
+            manaText.text = $"Mana: {HandManager.instance.handController.mana}";
         }
 
         public void EndTurn()

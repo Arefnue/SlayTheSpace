@@ -38,7 +38,8 @@ namespace Arif.Scripts
 
         public void OnDeath()
         {
-           
+           LevelManager.instance.OnEnemyDeath();
+           Destroy(gameObject);
         }
         private IEnumerator ActionRoutine()
         {

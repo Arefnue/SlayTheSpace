@@ -7,17 +7,15 @@ namespace Arif.Scripts
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-
         public List<CardSO> allCardsList;
         public CardBase cardPrefab;
-
         public List<int> myDeckIDList;
         
         private void Awake()
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
         public void BuildCard(int id)
         {
             foreach (var cardSO in allCardsList)
