@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Arif.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Arif.Scripts {
@@ -44,7 +43,7 @@ namespace Arif.Scripts {
         private Plane plane; // world XY plane, used for mouse position raycasts
         private Vector3 a, b, c; // Used for shaping hand into curve
         
-        private List<CardBase> hand; // Cards currently in hand
+        public List<CardBase> hand; // Cards currently in hand
         
         private int selected = -1;  // Card index that is nearest to mouse
         private int dragged = -1;   // Card index that is held by mouse (inside of hand)
@@ -70,13 +69,13 @@ namespace Arif.Scripts {
             prevMousePos = Input.mousePosition;
 
             // Add transform children to hand
-            int count = transform.childCount;
-            hand = new List<CardBase>(count);
-            for (int i = 0; i < count; i++) {
-                Transform cardTransform = transform.GetChild(i);
-                CardBase card = cardTransform.GetComponent<CardBase>();
-                hand.Add(card);
-            }
+            // int count = transform.childCount;
+            // hand = new List<CardBase>(count);
+            // for (int i = 0; i < count; i++) {
+            //     Transform cardTransform = transform.GetChild(i);
+            //     CardBase card = cardTransform.GetComponent<CardBase>();
+            //     hand.Add(card);
+            // }
         }
 
         private void OnDrawGizmos() {

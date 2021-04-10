@@ -8,7 +8,7 @@ namespace Arif.Scripts
     public class CardBase : MonoBehaviour
     {
         [Tooltip("Mana required to use card")]
-        public CardSO myProfile;
+        [HideInInspector]public CardSO myProfile;
         
        
         public MeshRenderer meshRenderer;
@@ -30,18 +30,15 @@ namespace Arif.Scripts
         
         private bool isInactive;
         
-        protected virtual void Start() {
+        public void SetCard()
+        {
             meshRenderer = GetComponentInChildren<MeshRenderer>();
             material = meshRenderer.material; // Create material instance
 
             _color = material.GetColor("_Color");
             _color2 = material.GetColor("_OutlineColor");
             _dissolveColor = material.GetColor("_DissolveColor");
-            SetCard();
-        }
-
-        public void SetCard()
-        {
+            
             nameText.text = myProfile.myName;
             descText.text = myProfile.myDescription;
             manaText.text = myProfile.myManaCost.ToString();
@@ -51,13 +48,13 @@ namespace Arif.Scripts
         
         public void Use() 
         {
-            Debug.Log("AAA");
+            LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
 
         public void Attack(EnemyBase targetEnemy)
         {
-            Debug.Log(targetEnemy);
+            LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
         
