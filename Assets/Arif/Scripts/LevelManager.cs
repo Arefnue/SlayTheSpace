@@ -53,9 +53,9 @@ namespace Arif.Scripts
         public Transform enemyPos;
         [HideInInspector]public EnemyBase currentEnemy;
         
-        private List<int> drawPile = new List<int>();
-        private List<int> handPile = new List<int>();
-        private List<int> discardPile = new List<int>();
+        [HideInInspector]public List<int> drawPile = new List<int>();
+        [HideInInspector]public List<int> handPile = new List<int>();
+        [HideInInspector]public List<int> discardPile = new List<int>();
 
         //todo Discard ve Draw pile sayılarını göster
         //todo Sağlık sistemi getir
@@ -109,7 +109,6 @@ namespace Arif.Scripts
 
         public void DrawCards(int drawCount)
         {
-
             var currentDrawCount = 0;
             for (int i = 0; i < drawCount; i++)
             {
@@ -132,9 +131,9 @@ namespace Arif.Scripts
                     handPile.Add(randomCard);
                     drawPile.Remove(randomCard);
                     currentDrawCount++;
+                    UIManager.instance.SetPileTexts();
                 }
                 
-               
             }
         }
 
@@ -149,13 +148,18 @@ namespace Arif.Scripts
         
         private void ReshuffleDiscardPile()
         {
-            drawPile = discardPile;
+            foreach (var i in discardPile)
+            {
+                drawPile.Add(i);
+            }
+            discardPile.Clear();
         }
 
         public void DiscardCard(CardBase targetCard)
         {
             handPile.Remove(targetCard.myProfile.myID);
             discardPile.Add(targetCard.myProfile.myID);
+            UIManager.instance.SetPileTexts();
         }
         
         
