@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Arif.Scripts
@@ -8,6 +9,8 @@ namespace Arif.Scripts
         public static HandManager instance;
 
         public HandController handController;
+
+       
 
         private void Awake()
         {

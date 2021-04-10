@@ -53,13 +53,14 @@ namespace Arif.Scripts
         public PlayerController playerController;
         public Transform playerPos;
         public Transform enemyPos;
+        public Transform choiceParent;
+        public List<Choice> choicesList;
         [HideInInspector]public EnemyBase currentEnemy;
         
         [HideInInspector]public List<int> drawPile = new List<int>();
         [HideInInspector]public List<int> handPile = new List<int>();
         [HideInInspector]public List<int> discardPile = new List<int>();
         
-        //todo Level sistemi yap
         //todo Kartları düzenle
         
         private void Awake()
@@ -70,8 +71,7 @@ namespace Arif.Scripts
 
         private void Start()
         {
-            SetGameDeck();
-            CurrentLevelState = LevelState.PlayerTurn;
+           OnLevelStart();
         }
 
         public void EndTurn()
@@ -125,7 +125,7 @@ namespace Arif.Scripts
                 else
                 {
                     var randomCard = drawPile[Random.Range(0,drawPile.Count)];
-                    var clone = GameManager.instance.BuildAndGetCard(randomCard);
+                    var clone = GameManager.instance.BuildAndGetCard(randomCard,HandManager.instance.handController.transform);
                     HandManager.instance.handController.AddCardToHand(clone);
                     handPile.Add(randomCard);
                     drawPile.Remove(randomCard);
@@ -138,10 +138,33 @@ namespace Arif.Scripts
 
         public void OnEnemyDeath()
         {
-            CurrentLevelState = LevelState.Finished;
-            
+            OnChoiceStart();
         }
 
+        public void OnChoiceStart()
+        {
+            CurrentLevelState = LevelState.Finished;
+            foreach (var choice in choicesList)
+            {
+                choice.DetermineChoice();
+            }
+            DiscardHand();
+            discardPile.Clear();
+            drawPile.Clear();
+            handPile.Clear();
+            HandManager.instance.handController.hand.Clear();
+            choiceParent.gameObject.SetActive(true);
+            UIManager.instance.gameCanvas.SetActive(false);
+        }
+
+        public void OnLevelStart()
+        {
+            SetGameDeck();
+            choiceParent.gameObject.SetActive(false);
+            UIManager.instance.gameCanvas.SetActive(true);
+            CurrentLevelState = LevelState.PlayerTurn;
+        }
+        
         public void DiscardHand()
         {
             foreach (var cardBase in HandManager.instance.handController.hand)

@@ -100,8 +100,5 @@ namespace Arif.Scripts
             }
         }
         
-        public void OnDestroy() {
-            if (material != null) Destroy(material);
-        }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Arif.Scripts
 {
@@ -9,20 +10,31 @@ namespace Arif.Scripts
         public static GameManager instance;
         public List<CardSO> allCardsList;
         public CardBase cardPrefab;
+        public List<int> initalDeckList;
         public List<int> myDeckIDList;
-        
+        public List<CardSO> choiceCardList;
+        private int _currentEnemyIndex=0;
+        [HideInInspector] public List<CardBase> choiceContainer = new List<CardBase>();
         private void Awake()
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (instance == null)
+            {
+                instance = this;
+
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        public void BuildCard(int id)
+        public void BuildCard(int id,Transform parent)
         {
             foreach (var cardSO in allCardsList)
             {
                 if (cardSO.myID == id)
                 {
-                    var clone = Instantiate(cardPrefab, HandManager.instance.handController.transform);
+                    var clone = Instantiate(cardPrefab, parent);
                     clone.myProfile = cardSO;
                     clone.SetCard();
                     
@@ -31,13 +43,13 @@ namespace Arif.Scripts
             }
         }
         
-        public CardBase BuildAndGetCard(int id)
+        public CardBase BuildAndGetCard(int id,Transform parent)
         {
             foreach (var cardSO in allCardsList)
             {
                 if (cardSO.myID == id)
                 {
-                    var clone = Instantiate(cardPrefab, HandManager.instance.handController.transform);
+                    var clone = Instantiate(cardPrefab, parent);
                     clone.myProfile = cardSO;
                     clone.SetCard();
                     return clone;
@@ -46,6 +58,24 @@ namespace Arif.Scripts
             }
 
             return null;
+        }
+
+        public void NextLevel()
+        {
+           
+            var i = SceneManager.GetActiveScene().buildIndex + 1;
+            
+            if (i>=SceneManager.sceneCountInBuildSettings)
+            {
+                myDeckIDList = initalDeckList;
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(i);
+            }
+            
+
         }
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   myType: 0
   myManaCost: 0
   myName: Attack 0
-  myDescription: Deal 5 damage
+  myDescription: Deal 100 damage
   mySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  damageValue: 5
+  damageValue: 100
   healValue: 0

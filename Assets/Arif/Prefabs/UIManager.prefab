@@ -981,6 +981,7 @@ MonoBehaviour:
   drawPileText: {fileID: 2388636854491575281}
   discardPileText: {fileID: 2388636853538357550}
   manaText: {fileID: 1719870032295950307}
+  gameCanvas: {fileID: 2388636853734948943}
 --- !u!1 &2388636854968383068
 GameObject:
   m_ObjectHideFlags: 0

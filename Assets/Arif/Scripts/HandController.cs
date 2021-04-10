@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Arif.Scripts {
 
+    //Thanks to Cyan
+    
     public class HandController : MonoBehaviour {
         
         [Header("Gameplay Settings")]

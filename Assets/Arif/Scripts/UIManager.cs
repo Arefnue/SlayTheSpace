@@ -11,6 +11,7 @@ namespace Arif.Scripts
         public TextMeshProUGUI drawPileText;
         public TextMeshProUGUI discardPileText;
         public TextMeshProUGUI manaText;
+        public GameObject gameCanvas;
         private void Awake()
         {
             instance = this;
