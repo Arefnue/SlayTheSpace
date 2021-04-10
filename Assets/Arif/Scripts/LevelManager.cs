@@ -13,33 +13,73 @@ namespace Arif.Scripts
         public enum LevelState
         {
             Prepare,
-            Normal,
-            OnDrawing,
+            PlayerTurn,
+            EnemyTurn,
             Finished
         }
         
         public int drawCount= 4;
-        public LevelState currentLevelState;
+        private LevelState _currentLevelState;
+        public LevelState CurrentLevelState
+        {
+            get { return _currentLevelState;}
+            set
+            {
+                switch (value)
+                {
+                    case LevelState.Prepare:
+                        break;
+                    case LevelState.PlayerTurn:
+                        HandManager.instance.handController.mana = 3;
+                        DrawCards(drawCount);
+                        HandManager.instance.handController.canSelectCards = true;
+                        break;
+                    case LevelState.EnemyTurn:
+                        DiscardHand();
+                        currentEnemy.DoAction();
+                        HandManager.instance.handController.canSelectCards = false;
+                        break;
+                    case LevelState.Finished:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(value), value, null);
+                }
+
+                _currentLevelState = value;
+            }}
+        
         public PlayerController playerController;
+        public Transform playerPos;
+        public Transform enemyPos;
+        [HideInInspector]public EnemyBase currentEnemy;
         
         private List<int> drawPile = new List<int>();
         private List<int> handPile = new List<int>();
         private List<int> discardPile = new List<int>();
 
-        //todo cardDatabase
+        //todo Discard ve Draw pile sayılarını göster
+        //todo Sağlık sistemi getir
+        //todo Düşman AI
+        //todo Level sistemi yap
+        //todo Kartları düzenle
+        
         private void Awake()
         {
             instance = this;
+            CurrentLevelState = LevelState.Prepare;
         }
 
         private void Start()
         {
-            
             SetGameDeck();
-            DrawCards(drawCount);
+            CurrentLevelState = LevelState.PlayerTurn;
         }
 
-
+        public void EndTurn()
+        {
+            CurrentLevelState = LevelState.EnemyTurn;
+        }
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
@@ -50,6 +90,11 @@ namespace Arif.Scripts
             if (Input.GetKeyDown(KeyCode.D))
             {
                 DrawCards(3);
+            }
+            
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                EndTurn();
             }
         }
 
@@ -93,10 +138,13 @@ namespace Arif.Scripts
             }
         }
 
-        
-        private void Drawing()
+        public void DiscardHand()
         {
-            
+            foreach (var cardBase in HandManager.instance.handController.hand)
+            {
+                cardBase.Discard();
+            }
+            HandManager.instance.handController.hand.Clear();
         }
         
         private void ReshuffleDiscardPile()
