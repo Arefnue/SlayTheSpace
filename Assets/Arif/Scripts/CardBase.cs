@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,12 +49,14 @@ namespace Arif.Scripts
         
         public void Use() 
         {
+            LevelManager.instance.playerController.myHealth.Heal(myProfile.healValue);
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
 
         public void Attack(EnemyBase targetEnemy)
         {
+            targetEnemy.myHealth.TakeDamage(myProfile.damageValue);
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }

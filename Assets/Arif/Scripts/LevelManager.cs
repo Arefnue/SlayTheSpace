@@ -57,7 +57,6 @@ namespace Arif.Scripts
         [HideInInspector]public List<int> handPile = new List<int>();
         [HideInInspector]public List<int> discardPile = new List<int>();
 
-        //todo Discard ve Draw pile sayılarını göster
         //todo Sağlık sistemi getir
         //todo Düşman AI
         //todo Level sistemi yap

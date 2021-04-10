@@ -44,16 +44,18 @@ namespace Arif.Scripts
         #endregion
 
         public int myID;
-        public CardClass myClass;
-        public CardRarity myRarity;
+        //public CardClass myClass;
+        //public CardRarity myRarity;
         public CardType myType;
-        public UseType myUsage;
-        public Targets myTargets;
+        //public UseType myUsage;
+        //public Targets myTargets;
         public int myManaCost;
         public string myName;
         [TextArea]
         public string myDescription;
         public Sprite mySprite;
-        
+        public float damageValue;
+        public float healValue;
+
     }
 }

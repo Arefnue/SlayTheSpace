@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: CardTest (1)
   m_EditorClassIdentifier: 
   myID: 1
-  myClass: 0
-  myRarity: 0
   myType: 0
-  myUsage: 0
-  myTargets: 0
   myManaCost: 1
-  myName: Test1
-  myDescription: TTTTTTT 5
+  myName: Attack 1
+  myDescription: Deal 10 damage
   mySprite: {fileID: 21300000, guid: bd07c15ebf3d4b3478f905ca3376fc57, type: 3}
+  damageValue: 10
+  healValue: 0

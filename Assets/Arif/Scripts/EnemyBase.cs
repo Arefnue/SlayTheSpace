@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Arif.Scripts
 {
     public class EnemyBase : MonoBehaviour
     {
+        [HideInInspector] public Health myHealth;
+        private void Awake()
+        {
+            myHealth = GetComponent<Health>();
+            myHealth.deathAction += OnDeath;
+        }
+
         private void Start()
         {
             LevelManager.instance.currentEnemy = this;
@@ -18,7 +26,12 @@ namespace Arif.Scripts
 
         }
 
+       
 
+        public void OnDeath()
+        {
+           
+        }
         private IEnumerator ActionRoutine()
         {
             var waitTime = new WaitForSeconds(3f);
