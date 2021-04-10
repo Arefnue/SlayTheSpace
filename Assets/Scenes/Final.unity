@@ -349,38 +349,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3317166076651979106, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317166076651979106, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317166076651979106, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317166076651979106, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348798973457359650, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348798973457359650, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348798973457359650, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348798973457359650, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
 --- !u!1001 &4666622058458026087
@@ -394,6 +362,10 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 107050534}
+    - target: {fileID: 4666622058851079916, guid: c9ebaeb56bc412c489b770ea0409f753, type: 3}
+      propertyPath: isFinalLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4666622058851079917, guid: c9ebaeb56bc412c489b770ea0409f753, type: 3}
       propertyPath: m_RootOrder
       value: 0

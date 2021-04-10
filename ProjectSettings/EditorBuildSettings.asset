@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d953d2e0e48f34d4f95d43083da214ce
   - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: a5ccc9bffe3bb2e4485acf0c5b891344
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 9040958e26a96564abaf7667d66c8e53
+  - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: 8bda66123e5789e4dbabe271dabf2439
   - enabled: 1
     path: Assets/Scenes/CombatScene 1.unity
     guid: 6c7736ca37e02e5478722cc8579c6808
   - enabled: 1
-    path: Assets/Scenes/CombatScene 2.unity
+    path: Assets/Scenes/Final.unity
     guid: 95632d1cd790dde44aac6bfdd0e1fd16
   m_configObjects: {}

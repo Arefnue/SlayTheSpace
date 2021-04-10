@@ -13,7 +13,7 @@ namespace Arif.Scripts
 
         private void OnDeath()
         {
-            
+            LevelManager.instance.OnPlayerDeath();
         }
     }
 }

@@ -12,9 +12,13 @@ namespace Arif.Scripts
         public TextMeshProUGUI discardPileText;
         public TextMeshProUGUI manaText;
         public GameObject gameCanvas;
+        public GameObject winPanel;
+        public GameObject losePanel;
         private void Awake()
         {
             instance = this;
+            winPanel.SetActive(false);
+            losePanel.SetActive(false);
         }
 
         public void SetPileTexts()

@@ -55,6 +55,7 @@ namespace Arif.Scripts
         public Transform enemyPos;
         public Transform choiceParent;
         public List<Choice> choicesList;
+        public bool isFinalLevel;
         [HideInInspector]public EnemyBase currentEnemy;
         
         [HideInInspector]public List<int> drawPile = new List<int>();
@@ -77,24 +78,6 @@ namespace Arif.Scripts
         public void EndTurn()
         {
             CurrentLevelState = LevelState.EnemyTurn;
-        }
-        
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                DrawCards(1);
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                DrawCards(3);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                EndTurn();
-            }
         }
 
         public void SetGameDeck()
@@ -138,9 +121,46 @@ namespace Arif.Scripts
 
         public void OnEnemyDeath()
         {
-            OnChoiceStart();
+            if (isFinalLevel)
+            {
+                OnFinal();
+            }
+            else
+            {
+                OnChoiceStart();
+            }
+            
         }
 
+        public void OnPlayerDeath()
+        {
+            LoseGame();
+        }
+
+        public void LoseGame()
+        {
+            CurrentLevelState = LevelState.Finished;
+            DiscardHand();
+            discardPile.Clear();
+            drawPile.Clear();
+            handPile.Clear();
+            HandManager.instance.handController.hand.Clear();
+            UIManager.instance.gameCanvas.SetActive(false);
+            UIManager.instance.losePanel.SetActive(true);
+        }
+
+        public void OnFinal()
+        {
+            CurrentLevelState = LevelState.Finished;
+            DiscardHand();
+            discardPile.Clear();
+            drawPile.Clear();
+            handPile.Clear();
+            HandManager.instance.handController.hand.Clear();
+            UIManager.instance.gameCanvas.SetActive(false);
+            UIManager.instance.winPanel.SetActive(true);
+        }
+        
         public void OnChoiceStart()
         {
             CurrentLevelState = LevelState.Finished;
