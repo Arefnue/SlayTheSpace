@@ -69,15 +69,6 @@ namespace Arif.Scripts {
             handBounds = new Rect((handOffset - handSize / 2), handSize);
             plane = new Plane(-Vector3.forward, transform.position);
             prevMousePos = Input.mousePosition;
-
-            // Add transform children to hand
-            // int count = transform.childCount;
-            // hand = new List<CardBase>(count);
-            // for (int i = 0; i < count; i++) {
-            //     Transform cardTransform = transform.GetChild(i);
-            //     CardBase card = cardTransform.GetComponent<CardBase>();
-            //     hand.Add(card);
-            // }
         }
 
         private void OnDrawGizmos() {
@@ -102,13 +93,7 @@ namespace Arif.Scripts {
 
             Gizmos.DrawWireCube(handOffset, handSize);
         }
-
-
-
-        private void HandleMousePosition()
-        {
-           
-        }
+        
         private void Update() {
 
             
@@ -373,8 +358,8 @@ namespace Arif.Scripts {
                 }
             }
         }
-
-
+        
+        
         #region Cyan Methods
 
         /// <summary>

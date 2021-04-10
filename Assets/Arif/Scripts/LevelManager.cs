@@ -32,6 +32,7 @@ namespace Arif.Scripts
                     case LevelState.PlayerTurn:
                         HandManager.instance.handController.mana = 3;
                         DrawCards(drawCount);
+                        currentEnemy.ShowNextAction();
                         HandManager.instance.handController.canSelectCards = true;
                         break;
                     case LevelState.EnemyTurn:
@@ -87,8 +88,7 @@ namespace Arif.Scripts
                 drawPile.Add(i);
             }
         }
-
-
+        
         public void DrawCards(int drawCount)
         {
             var currentDrawCount = 0;
@@ -210,8 +210,5 @@ namespace Arif.Scripts
             UIManager.instance.SetPileTexts();
         }
         
-        
-        
-
     }
 }

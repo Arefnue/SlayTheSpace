@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,13 @@ namespace Arif.Scripts
         public TextMeshProUGUI manaText;
         public Image frontImage;
         public Image backImage;
+        
+        //todo Block
+        //todo Power güçlendirme, maxCan arttırma
+        //todo Draw mekaniği
+        //todo Boşluk stacklerini yansıtma, ya da heal
+        //todo Mana arttırma
+        //todo Max can çalma
         
         
         private bool isInactive;
@@ -81,12 +89,27 @@ namespace Arif.Scripts
             Destroy(gameObject);
         }
 
-        /// <summary>
-        /// Use to swap the card material to an inactiveMaterial. If true should pass in the inactiveMaterial. false resets it to the regular card material so inactiveMaterial can be null.
-        /// </summary>
+        private IEnumerator DiscardRoutine(Transform target)
+        {
+            var waitFrame = new WaitForEndOfFrame();
+            var timer = 0f;
+
+            while (true)
+            {
+
+                timer += Time.deltaTime;
+                if (timer>=1f)
+                {
+                    break;
+                }
+                
+                yield return waitFrame;
+            }
+        }
+
         public void SetInactiveMaterialState(bool isInactive, Material inactiveMaterial = null) {
             if (isInactive == this.isInactive) {
-                return; // No change
+                return; 
             }
             this.isInactive = isInactive;
             if (isInactive) {
