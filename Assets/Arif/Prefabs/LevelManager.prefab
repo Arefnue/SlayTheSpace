@@ -55,6 +55,7 @@ MonoBehaviour:
   choicesList:
   - {fileID: 2449146128575969183}
   - {fileID: 1527922970590341652}
+  isFinalLevel: 0
   currentEnemy: {fileID: 0}
   drawPile: 
   handPile: 
@@ -292,6 +293,14 @@ PrefabInstance:
     - target: {fileID: 7048625805859230003, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048625806080352388, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048625806080352388, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
