@@ -48,6 +48,7 @@ namespace Arif.Scripts
                 _currentLevelState = value;
             }}
         
+        
         public PlayerController playerController;
         public Transform playerPos;
         public Transform enemyPos;
@@ -56,8 +57,7 @@ namespace Arif.Scripts
         [HideInInspector]public List<int> drawPile = new List<int>();
         [HideInInspector]public List<int> handPile = new List<int>();
         [HideInInspector]public List<int> discardPile = new List<int>();
-
-        //todo Sağlık sistemi getir
+        
         //todo Düşman AI
         //todo Level sistemi yap
         //todo Kartları düzenle

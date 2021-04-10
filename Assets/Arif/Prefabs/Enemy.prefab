@@ -48,6 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ba82d88df94f47bdd0998ffa0a43f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myActions:
+  - targetPlayer: 1
+    value: 10
+  - targetPlayer: 1
+    value: 5
+  - targetPlayer: 0
+    value: 10
+  - targetPlayer: 0
+    value: 20
   myHealth: {fileID: 0}
 --- !u!54 &735061151
 Rigidbody:
