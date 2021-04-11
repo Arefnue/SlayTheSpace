@@ -11,6 +11,7 @@ namespace Arif.Scripts
 
         public Image strImage;
         public TextMeshProUGUI strText;
+        public GameObject playerHighlight;
         
         private void Awake()
         {
@@ -18,6 +19,7 @@ namespace Arif.Scripts
             myHealth.deathAction += OnDeath;
             strImage.gameObject.SetActive(false);
             strText.gameObject.SetActive(false);
+            playerHighlight.SetActive(false);
         }
 
         public void IncreaseStr(int bonus)

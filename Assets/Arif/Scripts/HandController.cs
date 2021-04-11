@@ -248,7 +248,7 @@ namespace Arif.Scripts {
             // HANDLE DRAGGED CARD
             // (Card held by mouse, inside hand)
             // --------------------------------------------------------
-            //todo Kartı oynayabileceğin hedefleri göster
+            
             if (!mouseButton) {
                 // Stop dragging
                 heldCardOffset = Vector3.zero;
@@ -298,6 +298,10 @@ namespace Arif.Scripts {
                 {
                     LevelManager.instance.currentEnemy.highlightObject.SetActive(true);
                 }
+                else if (heldCard.myProfile.myType == CardSO.CardType.Skill)
+                {
+                    LevelManager.instance.playerController.playerHighlight.SetActive(true);
+                }
                
                 //if (!canSelectCards || cardTransform.position.y <= transform.position.y + 0.5f) {
                 if (!canSelectCards || mouseInsideHand) { //  || sqrDistance <= 2
@@ -307,6 +311,7 @@ namespace Arif.Scripts {
                     selected = -1;
                     heldCard = null;
                     LevelManager.instance.currentEnemy.highlightObject.SetActive(false);
+                    LevelManager.instance.playerController.playerHighlight.SetActive(false);
                     return;
                 }
 
@@ -316,6 +321,7 @@ namespace Arif.Scripts {
                 {
                     
                     LevelManager.instance.currentEnemy.highlightObject.SetActive(false);
+                    LevelManager.instance.playerController.playerHighlight.SetActive(false);
                     if (heldCard.myProfile.myType == CardSO.CardType.Attack)
                     {
                         RaycastHit hit;
