@@ -64,6 +64,7 @@ namespace Arif.Scripts
         public List<Choice> choicesList;
         public bool isFinalLevel;
         public EnemyBase currentEnemy;
+        [HideInInspector] public List<int> _sameChoiceContainer = new List<int>();
         
         [HideInInspector]public List<int> drawPile = new List<int>();
         [HideInInspector]public List<int> handPile = new List<int>();
