@@ -58,9 +58,12 @@ MonoBehaviour:
   - {fileID: 1024537507101424437}
   isFinalLevel: 0
   currentEnemy: {fileID: 0}
+  _sameChoiceContainer: 
   drawPile: 
   handPile: 
   discardPile: 
+  discardTransform: {fileID: 6891399152682601200}
+  drawTransform: {fileID: 5689584158116678814}
 --- !u!1 &4666622059495250647
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +319,16 @@ Transform:
 --- !u!20 &2383129720346469258 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7048625804953322726, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+  m_PrefabInstance: {fileID: 4666622059139852140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6891399152682601200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2260814769065520540, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+  m_PrefabInstance: {fileID: 4666622059139852140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5689584158116678814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1024105660326112242, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
   m_PrefabInstance: {fileID: 4666622059139852140}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4026820861511293847 stripped

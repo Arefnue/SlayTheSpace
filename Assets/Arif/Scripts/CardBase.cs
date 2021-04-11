@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Arif.Scripts
 {
@@ -95,7 +96,7 @@ namespace Arif.Scripts
             }
             
             LevelManager.instance.DiscardCard(this);
-            StartCoroutine("Dissolve");
+            StartCoroutine("DiscardRoutine");
         }
 
         public void Attack(EnemyBase targetEnemy)
@@ -137,7 +138,7 @@ namespace Arif.Scripts
                 AudioManager.instance.PlayOneShot(playerAction.mySoundProfile.GetRandomClip());
             }
             LevelManager.instance.DiscardCard(this);
-            StartCoroutine("Dissolve");
+            StartCoroutine("DiscardRoutine");
         }
 
 
@@ -150,7 +151,7 @@ namespace Arif.Scripts
         public void Discard()
         {
             LevelManager.instance.DiscardCard(this);
-            StartCoroutine("Dissolve");
+            StartCoroutine("DiscardRoutine");
         }
 
         public void Exhaust()
@@ -172,15 +173,30 @@ namespace Arif.Scripts
             Destroy(gameObject);
         }
 
-        private IEnumerator DiscardRoutine(Transform target)
+        private IEnumerator DiscardRoutine()
         {
             var waitFrame = new WaitForEndOfFrame();
             var timer = 0f;
+            
+            transform.SetParent(LevelManager.instance.discardTransform);
+            
+            var startPos = transform.localPosition;
+            var endPos = Vector3.zero;
 
+            var startScale = transform.localScale;
+            var endScale = Vector3.zero;
+
+            var startRot = transform.localRotation;
+            var endRot = Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360);
+            
             while (true)
             {
 
-                timer += Time.deltaTime;
+                timer += Time.deltaTime*5;
+
+                transform.localPosition = Vector3.Lerp(startPos, endPos, timer);
+                transform.localScale = Vector3.Lerp(startScale, endScale, timer);
+                transform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
                 if (timer>=1f)
                 {
                     break;
@@ -188,6 +204,8 @@ namespace Arif.Scripts
                 
                 yield return waitFrame;
             }
+            
+            Destroy(gameObject);
         }
 
         public void SetInactiveMaterialState(bool isInactive, Material inactiveMaterial = null) {
