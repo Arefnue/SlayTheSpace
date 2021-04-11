@@ -32,7 +32,6 @@ namespace Arif.Scripts
         public void SetToggle(Toggle targetToggle)
         {
             GameManager.instance.isRandomHand = targetToggle.isOn;
-            Debug.Log(targetToggle.isOn);
         }
     }
 }

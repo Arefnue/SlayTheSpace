@@ -21,4 +21,4 @@ MonoBehaviour:
   myManaCost: 1
   myName: Guard
   myDescription: Block 8 damage
-  mySprite: {fileID: 21300000, guid: 8176e2463b740a34b98ccb81f236cd1c, type: 3}
+  mySprite: {fileID: 21300000, guid: 879f366ecb918d045b75d16f990e1058, type: 3}

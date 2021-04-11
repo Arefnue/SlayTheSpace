@@ -219,10 +219,13 @@ namespace Arif.Scripts
             if (drawPile.Count>0)
             {
                 targetCard = drawPile[Random.Range(0, drawPile.Count)];
+                StartCoroutine(ExhaustCardRoutine(targetCard, drawTransform, currentEnemy.transform));
             }
             else if (discardPile.Count>0)
             {
                 targetCard = discardPile[Random.Range(0, discardPile.Count)];
+                StartCoroutine(ExhaustCardRoutine(targetCard, discardTransform, currentEnemy.transform));
+
             }
             else if (handPile.Count>0)
             {
@@ -236,7 +239,10 @@ namespace Arif.Scripts
                         break;
                     }
                 }
+
+                StartCoroutine(ExhaustCardRoutine(targetCard, tCard.transform, currentEnemy.transform));
                 HandManager.instance.handController.hand?.Remove(tCard);
+                Destroy(tCard.gameObject);
             }
             else
             {
@@ -247,6 +253,41 @@ namespace Arif.Scripts
             handPile?.Remove(targetCard);
             discardPile?.Remove(targetCard);
             UIManager.instance.SetPileTexts();
+        }
+
+        private IEnumerator ExhaustCardRoutine(int targetID,Transform startTransform,Transform endTransform)
+        {
+            var waitFrame = new WaitForEndOfFrame();
+            var timer = 0f;
+
+            var card = GameManager.instance.BuildAndGetCard(targetID, startTransform);
+            card.transform.SetParent(endTransform);
+            var startPos = card.transform.localPosition;
+            var endPos = Vector3.zero;
+
+            var startScale = card.transform.localScale;
+            var endScale = Vector3.zero;
+            
+            var startRot = transform.localRotation;
+            var endRot = Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360);
+
+            
+            while (true)
+            {
+                timer += Time.deltaTime*5;
+
+                card.transform.localPosition = Vector3.Lerp(startPos, endPos, timer);
+                card.transform.localScale = Vector3.Lerp(startScale, endScale, timer);
+                card.transform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
+                
+                if (timer>=1f)
+                {
+                    break;
+                }
+
+                yield return waitFrame;
+            }
+            Destroy(card.gameObject);
         }
         
         private void ReshuffleDiscardPile()

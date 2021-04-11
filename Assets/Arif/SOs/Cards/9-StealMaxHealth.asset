@@ -21,4 +21,4 @@ MonoBehaviour:
   myManaCost: 2
   myName: Bloody Moon
   myDescription: Steal 20 max health from target
-  mySprite: {fileID: 21300000, guid: d0577cc6c2d41d241ad6e1d01d12a270, type: 3}
+  mySprite: {fileID: 21300000, guid: e9cc0caa2c32e4b47a904d0d9965940b, type: 3}
