@@ -72,6 +72,8 @@ namespace Arif.Scripts
 
         public Transform discardTransform;
         public Transform drawTransform;
+
+        public SoundProfile finalSoundProfile;
         private void Awake()
         {
             instance = this;
@@ -192,10 +194,20 @@ namespace Arif.Scripts
             UIManager.instance.gameCanvas.SetActive(false);
         }
 
+        private IEnumerator FinalSfxRoutine()
+        {
+            while (CurrentLevelState!= LevelState.Finished)
+            {
+                yield return new WaitForSeconds(Random.Range(5,15));
+                AudioManager.instance.PlayOneShot(finalSoundProfile.GetRandomClip());
+            }
+        }
+        
         public void OnLevelStart()
         {
             if (isFinalLevel)
             {
+                StartCoroutine("FinalSfxRoutine");
                 AudioManager.instance.PlayMusic(AudioManager.instance.bossMusic);
             }
             SetGameDeck();

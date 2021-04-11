@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpaceDeathProfile
   m_EditorClassIdentifier: 
   randomClipList:
-  - {fileID: 8300000, guid: 6946f9d17b5f64c499e08f0468af7067, type: 3}
+  - {fileID: 8300000, guid: 60449213a8e963e42acbe7389128c62c, type: 3}

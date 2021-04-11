@@ -126,7 +126,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.83699995, g: 0.83699995, b: 0.83699995, a: 1}
     - _Dissolve: {r: 0, g: 0, b: 0, a: 0}
     - _DissolveColor: {r: 3.843137, g: 1.136383, b: 0.5432706, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
