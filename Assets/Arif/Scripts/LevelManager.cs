@@ -116,7 +116,7 @@ namespace Arif.Scripts
                 else
                 {
                     var randomCard = drawPile[Random.Range(0,drawPile.Count)];
-                    var clone = GameManager.instance.BuildAndGetCard(randomCard,HandManager.instance.handController.transform);
+                    var clone = GameManager.instance.BuildAndGetCard(randomCard,drawTransform);
                     HandManager.instance.handController.AddCardToHand(clone);
                     handPile.Add(randomCard);
                     drawPile.Remove(randomCard);

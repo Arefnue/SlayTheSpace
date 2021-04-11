@@ -215,7 +215,7 @@ namespace Arif.Scripts {
                     cardPos = mouseWorldPos + heldCardOffset;
                     cardTransform.position = cardPos;
                 } else {
-                    cardPos = Vector3.MoveTowards(cardTransform.position, cardPos, 6f * Time.deltaTime);
+                    cardPos = Vector3.MoveTowards(cardTransform.position, cardPos, 16f * Time.deltaTime);
                     cardTransform.position = cardPos;
                 }
                 
