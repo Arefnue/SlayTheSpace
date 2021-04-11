@@ -57,7 +57,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffd3079242e164645ba9365c7c965def, type: 2}
   cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
   initalDeckList: 00000000000000000000000000000000010000000100000001000000020000000200000003000000
-  myDeckIDList: 00000000000000000000000000000000010000000100000001000000020000000200000003000000
+  myDeckIDList: 
   choiceCardList:
   - {fileID: 11400000, guid: 1e5671bf6b0f90b428df809497a2f125, type: 2}
   - {fileID: 11400000, guid: 9706119fd5cc9f34e90cb73be068200c, type: 2}
@@ -69,3 +69,4 @@ MonoBehaviour:
   choiceContainer: []
   playerCurrentHealth: 100
   playerMaxHealth: 100
+  isRandomHand: 0

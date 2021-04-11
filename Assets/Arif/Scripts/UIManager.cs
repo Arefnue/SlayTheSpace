@@ -15,11 +15,14 @@ namespace Arif.Scripts
         public GameObject gameCanvas;
         public GameObject winPanel;
         public GameObject losePanel;
+
+        public GameObject randomizedDeck;
         private void Awake()
         {
             instance = this;
             winPanel.SetActive(false);
             losePanel.SetActive(false);
+            randomizedDeck.SetActive(GameManager.instance.isRandomHand);
         }
 
         public void SetPileTexts()

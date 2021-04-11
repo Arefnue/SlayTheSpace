@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Arif.Scripts
 {
@@ -11,11 +12,13 @@ namespace Arif.Scripts
         public List<CardSO> allCardsList;
         public CardBase cardPrefab;
         public List<int> initalDeckList;
-        public List<int> myDeckIDList;
+        public List<int> myDeckIDList = new List<int>();
         public List<CardSO> choiceCardList;
         [HideInInspector] public List<CardBase> choiceContainer = new List<CardBase>();
         public float playerCurrentHealth=100;
         public float playerMaxHealth=100;
+
+        public bool isRandomHand;
         private void Awake()
         {
             if (instance == null)
@@ -61,9 +64,26 @@ namespace Arif.Scripts
             return null;
         }
 
+        public void SetInitalHand()
+        {
+            if (isRandomHand)
+            {
+                myDeckIDList.Clear();
+                for (int i = 0; i < 10; i++)
+                {
+                    myDeckIDList.Add(allCardsList[Random.Range(0,allCardsList.Count)].myID);
+                }
+            }
+            else
+            {
+                myDeckIDList.Clear();
+                myDeckIDList = initalDeckList;
+            }
+        }
+        
         public void ResetManager()
         {
-            myDeckIDList = initalDeckList;
+            //myDeckIDList = initalDeckList;
             choiceContainer?.Clear();
             playerCurrentHealth = 100;
             playerMaxHealth = 100;
