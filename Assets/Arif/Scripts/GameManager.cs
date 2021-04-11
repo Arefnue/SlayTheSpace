@@ -68,6 +68,13 @@ namespace Arif.Scripts
             playerCurrentHealth = 100;
             playerMaxHealth = 100;
         }
+
+        public void ChangePlayerMaxHealth(float value)
+        {
+            playerMaxHealth += value;
+            LevelManager.instance.playerController.myHealth.maxHealth = playerMaxHealth;
+            LevelManager.instance.playerController.myHealth.ChangeHealthText();
+        }
         public void NextLevel()
         {
            

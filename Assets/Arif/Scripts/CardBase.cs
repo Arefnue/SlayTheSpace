@@ -57,18 +57,88 @@ namespace Arif.Scripts
         
         public void Use() 
         {
-            LevelManager.instance.playerController.myHealth.Heal(myProfile.healValue);
+            foreach (var playerAction in myProfile.playerActionList)
+            {
+                switch (playerAction.myPlayerActionType)
+                {
+                    case PlayerAction.PlayerActionType.Attack:
+                        break;
+                    case PlayerAction.PlayerActionType.Heal:
+                        LevelManager.instance.playerController.myHealth.Heal(playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.Block:
+                        LevelManager.instance.playerController.myHealth.ApplyBlock(playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.IncreaseStr:
+                        break;
+                    case PlayerAction.PlayerActionType.IncreaseMaxHealth:
+                        GameManager.instance.ChangePlayerMaxHealth(playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.Draw:
+                        LevelManager.instance.DrawCards((int)playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.ReversePoisonDamage:
+                        break;
+                    case PlayerAction.PlayerActionType.ReversePoisonHeal:
+                        break;
+                    case PlayerAction.PlayerActionType.IncreaseMana:
+                        LevelManager.instance.IncreaseMana((int)playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.StealMaxHealth:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+           
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
 
         public void Attack(EnemyBase targetEnemy)
         {
-            targetEnemy.myHealth.TakeDamage(myProfile.damageValue);
+            foreach (var playerAction in myProfile.playerActionList)
+            {
+                switch (playerAction.myPlayerActionType)
+                {
+                    case PlayerAction.PlayerActionType.Attack:
+                        targetEnemy.myHealth.TakeDamage(playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.Heal:
+                        LevelManager.instance.playerController.myHealth.Heal(playerAction.value);
+                        break;
+                    case PlayerAction.PlayerActionType.Block:
+                        break;
+                    case PlayerAction.PlayerActionType.IncreaseStr:
+                        break;
+                    case PlayerAction.PlayerActionType.IncreaseMaxHealth:
+                        break;
+                    case PlayerAction.PlayerActionType.Draw:
+                        break;
+                    case PlayerAction.PlayerActionType.ReversePoisonDamage:
+                        break;
+                    case PlayerAction.PlayerActionType.ReversePoisonHeal:
+                        break;
+                    case PlayerAction.PlayerActionType.IncreaseMana:
+                        break;
+                    case PlayerAction.PlayerActionType.StealMaxHealth:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+           
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
 
+
+        #region Actions
+
+        
+
+        #endregion
+        
         public void Discard()
         {
             LevelManager.instance.DiscardCard(this);

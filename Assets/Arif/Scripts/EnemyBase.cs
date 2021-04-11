@@ -11,7 +11,7 @@ namespace Arif.Scripts
     [Serializable]
     public class EnemyAction
     {
-        public enum ActionType
+        public enum EnemyActionType
         {
             Attack,
             Heal,
@@ -20,7 +20,7 @@ namespace Arif.Scripts
             Space
         }
 
-        public ActionType myActionType;
+        public EnemyActionType myEnemyActionType;
         public bool targetPlayer;
         public float value;
         public Sprite actionSprite;
@@ -34,7 +34,6 @@ namespace Arif.Scripts
         public GameObject myCanvas;
         private EnemyAction _nextAction;
         
-        //todo Final bossu için kart yeme mekaniği
         
         private void Awake()
         {
@@ -68,19 +67,19 @@ namespace Arif.Scripts
             actionImage.gameObject.SetActive(false);
             if (_nextAction.targetPlayer)
             {
-                switch (_nextAction.myActionType)
+                switch (_nextAction.myEnemyActionType)
                 {
-                    case EnemyAction.ActionType.Attack:
+                    case EnemyAction.EnemyActionType.Attack:
                         yield return StartCoroutine(nameof(AttackAnim),_nextAction);
                         break;
-                    case EnemyAction.ActionType.Heal:
+                    case EnemyAction.EnemyActionType.Heal:
                         break;
-                    case EnemyAction.ActionType.Poison:
+                    case EnemyAction.EnemyActionType.Poison:
                         yield return StartCoroutine(nameof(PoisonAnim),_nextAction);
                         break;
-                    case EnemyAction.ActionType.Block:
+                    case EnemyAction.EnemyActionType.Block:
                         break;
-                    case EnemyAction.ActionType.Space:
+                    case EnemyAction.EnemyActionType.Space:
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -89,19 +88,19 @@ namespace Arif.Scripts
             }
             else
             {
-                switch (_nextAction.myActionType)
+                switch (_nextAction.myEnemyActionType)
                 {
-                    case EnemyAction.ActionType.Attack:
+                    case EnemyAction.EnemyActionType.Attack:
                         break;
-                    case EnemyAction.ActionType.Heal:
+                    case EnemyAction.EnemyActionType.Heal:
                         yield return StartCoroutine(nameof(HealAnim),_nextAction);
                         break;
-                    case EnemyAction.ActionType.Poison:
+                    case EnemyAction.EnemyActionType.Poison:
                         break;
-                    case EnemyAction.ActionType.Block:
+                    case EnemyAction.EnemyActionType.Block:
                         yield return StartCoroutine(nameof(BlockAnim),_nextAction);
                         break;
-                    case EnemyAction.ActionType.Space:
+                    case EnemyAction.EnemyActionType.Space:
                         yield return StartCoroutine(nameof(SpaceAnim),_nextAction);
                         break;
                     default:

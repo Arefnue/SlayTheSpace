@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Arif.Scripts
 {
@@ -6,56 +8,47 @@ namespace Arif.Scripts
     public class CardSO : ScriptableObject
     {
         #region Card Enums
-        
-        public enum CardRarity
-        {
-            Common,
-            Uncommon,
-            Rare
-        }
-
         public enum CardType
         {
             Attack,
-            Skill,
-            Power
+            Skill
         }
         
-        public enum CardClass
-        {
-            Player,
-            Space,
-            Curse
-        }
-        
-        public enum UseType
-        {
-            Normal,
-            Exhaust,
-            Purge
-        }
-
-        public enum Targets
-        {
-            Single,
-            All
-        }
+       
 
         #endregion
 
         public int myID;
-        //public CardClass myClass;
-        //public CardRarity myRarity;
         public CardType myType;
-        //public UseType myUsage;
-        //public Targets myTargets;
+        public List<PlayerAction> playerActionList;
         public int myManaCost;
         public string myName;
         [TextArea]
         public string myDescription;
         public Sprite mySprite;
-        public float damageValue;
-        public float healValue;
+        // public float damageValue;
+        // public float healValue;
 
+    }
+
+    [Serializable]
+    public class PlayerAction
+    {
+        public enum PlayerActionType
+        {
+            Attack,
+            Heal,
+            Block,
+            IncreaseStr,
+            IncreaseMaxHealth,
+            Draw,
+            ReversePoisonDamage,
+            ReversePoisonHeal,
+            IncreaseMana,
+            StealMaxHealth
+        }
+
+        public PlayerActionType myPlayerActionType;
+        public float value;
     }
 }

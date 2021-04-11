@@ -113,7 +113,7 @@ namespace Arif.Scripts
             ChangeHealthText();
         }
 
-        private void ChangeHealthText()
+        public void ChangeHealthText()
         {
             currentHealthText.text = $"{_currentHealth}/{maxHealth}";
             if (blockStack>0)

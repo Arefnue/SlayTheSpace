@@ -145,6 +145,12 @@ namespace Arif.Scripts
             LoseGame();
         }
 
+        public void IncreaseMana(int target)
+        {
+            HandManager.instance.handController.mana += target;
+            UIManager.instance.SetPileTexts();
+        }
+
         public void LoseGame()
         {
             CurrentLevelState = LevelState.Finished;
