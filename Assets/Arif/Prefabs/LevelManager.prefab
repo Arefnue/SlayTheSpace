@@ -55,6 +55,7 @@ MonoBehaviour:
   choicesList:
   - {fileID: 2449146128575969183}
   - {fileID: 1527922970590341652}
+  - {fileID: 1024537507101424437}
   isFinalLevel: 0
   currentEnemy: {fileID: 0}
   drawPile: 
@@ -344,6 +345,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec66611b8f260dd48aedd70f2fcdf427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1024537507101424437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5689400268447308889, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+  m_PrefabInstance: {fileID: 4666622059139852140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec66611b8f260dd48aedd70f2fcdf427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7465629084440390167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +409,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835035829204582326, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545867995744327137, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545867995744327137, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545867995744327137, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545867995744327137, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086769057115803550, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086769057115803550, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086769057115803550, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086769057115803550, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

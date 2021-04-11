@@ -28,13 +28,7 @@ namespace Arif.Scripts
         public TextMeshProUGUI manaText;
         public Image frontImage;
         public Image backImage;
-        
-        //todo Block
-        //todo Power güçlendirme, maxCan arttırma
-        //todo Draw mekaniği
-        //todo Boşluk stacklerini yansıtma, ya da heal
-        //todo Mana arttırma
-        //todo Max can çalma
+
         
         
         private bool isInactive;
@@ -97,8 +91,9 @@ namespace Arif.Scripts
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+                AudioManager.instance.PlayOneShot(playerAction.mySoundProfile.GetRandomClip());
             }
-           
+            
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
@@ -139,8 +134,8 @@ namespace Arif.Scripts
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+                AudioManager.instance.PlayOneShot(playerAction.mySoundProfile.GetRandomClip());
             }
-           
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }

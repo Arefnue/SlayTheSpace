@@ -193,7 +193,10 @@ namespace Arif.Scripts
 
         public void OnLevelStart()
         {
-            
+            if (isFinalLevel)
+            {
+                AudioManager.instance.PlayMusic(AudioManager.instance.bossMusic);
+            }
             SetGameDeck();
             choiceParent.gameObject.SetActive(false);
             UIManager.instance.gameCanvas.SetActive(true);

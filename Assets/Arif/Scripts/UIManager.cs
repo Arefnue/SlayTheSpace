@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Arif.Scripts
 {
@@ -23,9 +24,9 @@ namespace Arif.Scripts
 
         public void SetPileTexts()
         {
-            drawPileText.text = $"Draw: {LevelManager.instance.drawPile.Count}";
-            discardPileText.text = $"Discard: {LevelManager.instance.discardPile.Count}";
-            manaText.text = $"Mana: {HandManager.instance.handController.mana}";
+            drawPileText.text = $"{LevelManager.instance.drawPile.Count}";
+            discardPileText.text = $"{LevelManager.instance.discardPile.Count}";
+            manaText.text = $"{HandManager.instance.handController.mana}";
         }
 
         public void EndTurn()
@@ -35,6 +36,12 @@ namespace Arif.Scripts
                 return;
             }
             LevelManager.instance.EndTurn();
+        }
+
+        public void MainMenu()
+        {
+            GameManager.instance.ResetManager();
+            SceneManager.LoadScene(0);
         }
     }
 }

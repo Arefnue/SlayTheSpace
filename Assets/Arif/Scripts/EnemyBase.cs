@@ -24,6 +24,7 @@ namespace Arif.Scripts
         public bool targetPlayer;
         public float value;
         public Sprite actionSprite;
+        public SoundProfile mySoundProfile;
     }
     public class EnemyBase : MonoBehaviour
     {
@@ -33,8 +34,8 @@ namespace Arif.Scripts
         public Image actionImage;
         public GameObject myCanvas;
         private EnemyAction _nextAction;
-        
-        
+        public SoundProfile deathSoundProfile;
+
         private void Awake()
         {
             myHealth = GetComponent<Health>();
@@ -53,13 +54,12 @@ namespace Arif.Scripts
             actionImage.sprite = _nextAction.actionSprite;
             
         }
-
-       
         
         public void OnDeath()
-        {
-           LevelManager.instance.OnEnemyDeath();
-           Destroy(gameObject);
+        { 
+            AudioManager.instance.PlayOneShot(deathSoundProfile.GetRandomClip());
+            LevelManager.instance.OnEnemyDeath();
+            Destroy(gameObject);
         }
         
         private IEnumerator ActionRoutine()
@@ -143,7 +143,7 @@ namespace Arif.Scripts
             }
 
             timer = 0f;
-            
+            AudioManager.instance.PlayOneShot(randomAction.mySoundProfile.GetRandomClip());
             LevelManager.instance.playerController.myHealth.ApplyPoisonDamage(randomAction.value);
             yield return new WaitForEndOfFrame();
             while (true)
@@ -187,7 +187,7 @@ namespace Arif.Scripts
             }
 
             timer = 0f;
-            
+            AudioManager.instance.PlayOneShot(randomAction.mySoundProfile.GetRandomClip());
             LevelManager.instance.playerController.myHealth.TakeDamage(randomAction.value);
             while (true)
             {
@@ -225,7 +225,7 @@ namespace Arif.Scripts
 
                 yield return waitFrame;
             }
-
+            AudioManager.instance.PlayOneShot(randomAction.mySoundProfile.GetRandomClip());
             myHealth.Heal(randomAction.value);
             timer = 0f;
             while (true)
@@ -264,7 +264,7 @@ namespace Arif.Scripts
 
                 yield return waitFrame;
             }
-
+            AudioManager.instance.PlayOneShot(randomAction.mySoundProfile.GetRandomClip());
             myHealth.ApplyBlock(randomAction.value);
             timer = 0f;
             while (true)
@@ -303,7 +303,7 @@ namespace Arif.Scripts
 
                 yield return waitFrame;
             }
-
+            AudioManager.instance.PlayOneShot(randomAction.mySoundProfile.GetRandomClip());
             LevelManager.instance.ExhaustRandomCard();
             timer = 0f;
             while (true)

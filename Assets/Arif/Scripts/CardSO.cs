@@ -50,5 +50,6 @@ namespace Arif.Scripts
 
         public PlayerActionType myPlayerActionType;
         public float value;
+        public SoundProfile mySoundProfile;
     }
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: 6-ReversePoisonAttack
+  m_EditorClassIdentifier: 
+  myID: 6
+  myType: 0
+  playerActionList:
+  - myPlayerActionType: 6
+    value: 2
+    mySoundProfile: {fileID: 11400000, guid: 9c4dc29fc2148ed43a7e14bb55832e50, type: 2}
+  myManaCost: 0
+  myName: Fresh Air
+  myDescription: Deal 2x your space dust to target. Clear your space dust
+  mySprite: {fileID: 21300000, guid: d0577cc6c2d41d241ad6e1d01d12a270, type: 3}
