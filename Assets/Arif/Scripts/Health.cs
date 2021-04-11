@@ -43,7 +43,6 @@ namespace Arif.Scripts
             GameManager.instance.playerCurrentHealth = _currentHealth;
         }
         
-        //todo Hasar stacklenmesi
 
         public void ApplyPoisonDamage(float stack)
         {

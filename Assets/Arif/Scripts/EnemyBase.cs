@@ -35,11 +35,13 @@ namespace Arif.Scripts
         public GameObject myCanvas;
         private EnemyAction _nextAction;
         public SoundProfile deathSoundProfile;
+        public GameObject highlightObject;
 
         private void Awake()
         {
             myHealth = GetComponent<Health>();
             myHealth.deathAction += OnDeath;
+            highlightObject.SetActive(false);
         }
         
         public void DoAction()

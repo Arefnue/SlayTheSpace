@@ -294,7 +294,11 @@ namespace Arif.Scripts {
                 // Handle Position & Rotation
                 cardTransform.rotation = Quaternion.RotateTowards(cardTransform.rotation, Quaternion.LookRotation(cardForward, cardUp), 80f * Time.deltaTime);
                 cardTransform.position = cardPos;
-
+                if (heldCard.myProfile.myType == CardSO.CardType.Attack)
+                {
+                    LevelManager.instance.currentEnemy.highlightObject.SetActive(true);
+                }
+               
                 //if (!canSelectCards || cardTransform.position.y <= transform.position.y + 0.5f) {
                 if (!canSelectCards || mouseInsideHand) { //  || sqrDistance <= 2
                     // Card has gone back into hand
@@ -302,6 +306,7 @@ namespace Arif.Scripts {
                     dragged = selected;
                     selected = -1;
                     heldCard = null;
+                    LevelManager.instance.currentEnemy.highlightObject.SetActive(false);
                     return;
                 }
 
@@ -310,7 +315,7 @@ namespace Arif.Scripts {
                 if (mouseButtonUp)
                 {
                     
-                    
+                    LevelManager.instance.currentEnemy.highlightObject.SetActive(false);
                     if (heldCard.myProfile.myType == CardSO.CardType.Attack)
                     {
                         RaycastHit hit;
