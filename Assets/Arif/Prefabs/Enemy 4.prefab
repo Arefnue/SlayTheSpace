@@ -160,20 +160,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 243822687401075094, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 243822687401075094, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8176e2463b740a34b98ccb81f236cd1c, type: 3}
+      objectReference: {fileID: 21300000, guid: d2d7e5db1c2a5f248bb27fbca86ebdc0, type: 3}
     - target: {fileID: 243822687401075094, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 243822687401075094, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 243822687401075094, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3884688637248816172, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
       propertyPath: maxHealth
