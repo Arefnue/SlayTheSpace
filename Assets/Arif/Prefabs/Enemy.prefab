@@ -49,19 +49,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myActions:
-  - myActionType: 0
+  - myEnemyActionType: 0
     targetPlayer: 1
     value: 10
     actionSprite: {fileID: 21300000, guid: a6e6c82b6683bb84f9cea83f6f68b0a1, type: 3}
-  - myActionType: 0
+  - myEnemyActionType: 0
     targetPlayer: 1
     value: 5
     actionSprite: {fileID: 21300000, guid: 41dadc79be491a84b8f616a58b9b8409, type: 3}
-  - myActionType: 1
+  - myEnemyActionType: 1
     targetPlayer: 0
     value: 10
     actionSprite: {fileID: 21300000, guid: bd07c15ebf3d4b3478f905ca3376fc57, type: 3}
-  - myActionType: 1
+  - myEnemyActionType: 1
     targetPlayer: 0
     value: 20
     actionSprite: {fileID: 21300000, guid: 519713da14f7d194cb0c9a596a092f34, type: 3}

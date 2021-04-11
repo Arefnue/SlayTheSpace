@@ -53,6 +53,8 @@ namespace Arif.Scripts
             actionImage.sprite = _nextAction.actionSprite;
             
         }
+
+       
         
         public void OnDeath()
         {

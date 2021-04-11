@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: CardTest (0)
+  m_Name: 8-IncreaseMana2
   m_EditorClassIdentifier: 
-  myID: 0
-  myType: 0
+  myID: 8
+  myType: 1
+  playerActionList:
+  - myPlayerActionType: 8
+    value: 2
   myManaCost: 0
-  myName: Attack 0
-  myDescription: Deal 100 damage
-  mySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  damageValue: 100
-  healValue: 0
+  myName: Water Bottle
+  myDescription: Increase your mana by 2
+  mySprite: {fileID: 21300000, guid: d0577cc6c2d41d241ad6e1d01d12a270, type: 3}

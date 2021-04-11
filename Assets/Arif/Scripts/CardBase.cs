@@ -70,6 +70,7 @@ namespace Arif.Scripts
                         LevelManager.instance.playerController.myHealth.ApplyBlock(playerAction.value);
                         break;
                     case PlayerAction.PlayerActionType.IncreaseStr:
+                        LevelManager.instance.playerController.IncreaseStr((int)playerAction.value);
                         break;
                     case PlayerAction.PlayerActionType.IncreaseMaxHealth:
                         GameManager.instance.ChangePlayerMaxHealth(playerAction.value);
@@ -78,8 +79,15 @@ namespace Arif.Scripts
                         LevelManager.instance.DrawCards((int)playerAction.value);
                         break;
                     case PlayerAction.PlayerActionType.ReversePoisonDamage:
+                       
+                        
                         break;
                     case PlayerAction.PlayerActionType.ReversePoisonHeal:
+                        
+                        var poisonCount = LevelManager.instance.playerController.myHealth.poisonStack;
+                        LevelManager.instance.playerController.myHealth.Heal(playerAction.value*poisonCount);
+                        LevelManager.instance.playerController.myHealth.ClearPoison();
+                        
                         break;
                     case PlayerAction.PlayerActionType.IncreaseMana:
                         LevelManager.instance.IncreaseMana((int)playerAction.value);
@@ -102,7 +110,7 @@ namespace Arif.Scripts
                 switch (playerAction.myPlayerActionType)
                 {
                     case PlayerAction.PlayerActionType.Attack:
-                        targetEnemy.myHealth.TakeDamage(playerAction.value);
+                        targetEnemy.myHealth.TakeDamage(playerAction.value+LevelManager.instance.playerController.bonusStr);
                         break;
                     case PlayerAction.PlayerActionType.Heal:
                         LevelManager.instance.playerController.myHealth.Heal(playerAction.value);
@@ -116,12 +124,17 @@ namespace Arif.Scripts
                     case PlayerAction.PlayerActionType.Draw:
                         break;
                     case PlayerAction.PlayerActionType.ReversePoisonDamage:
+                        var poisonCount = LevelManager.instance.playerController.myHealth.poisonStack;
+                        targetEnemy.myHealth.TakeDamage(playerAction.value*poisonCount);
+                        LevelManager.instance.playerController.myHealth.ClearPoison();
                         break;
                     case PlayerAction.PlayerActionType.ReversePoisonHeal:
                         break;
                     case PlayerAction.PlayerActionType.IncreaseMana:
                         break;
                     case PlayerAction.PlayerActionType.StealMaxHealth:
+                        targetEnemy.myHealth.DecreaseMaxHealth(playerAction.value);
+                        GameManager.instance.ChangePlayerMaxHealth(playerAction.value);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

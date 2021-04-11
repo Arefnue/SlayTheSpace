@@ -42,6 +42,8 @@ namespace Arif.Scripts
         {
             GameManager.instance.playerCurrentHealth = _currentHealth;
         }
+        
+        //todo Hasar stacklenmesi
 
         public void ApplyPoisonDamage(float stack)
         {
@@ -54,6 +56,16 @@ namespace Arif.Scripts
         public void ApplyBlock(float stack)
         {
             blockStack += stack;
+            ChangeHealthText();
+        }
+        
+        public void DecreaseMaxHealth(float value)
+        {
+            maxHealth -= value;
+            if (_currentHealth>maxHealth)
+            {
+                _currentHealth = maxHealth;
+            }
             ChangeHealthText();
         }
 

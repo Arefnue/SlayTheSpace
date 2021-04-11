@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: CardTest (2)
+  m_Name: 10-Attack0
   m_EditorClassIdentifier: 
-  myID: 2
-  myType: 1
-  myManaCost: 1
-  myName: Heal 1
-  myDescription: Heal 10
-  mySprite: {fileID: 21300000, guid: a6e6c82b6683bb84f9cea83f6f68b0a1, type: 3}
-  damageValue: 0
-  healValue: 10
+  myID: 10
+  myType: 0
+  playerActionList:
+  - myPlayerActionType: 0
+    value: 4
+  myManaCost: 0
+  myName: Cheap Hit
+  myDescription: Deal 4 damage
+  mySprite: {fileID: 21300000, guid: 08fd328cfca5b5441b8e543cde485fbe, type: 3}

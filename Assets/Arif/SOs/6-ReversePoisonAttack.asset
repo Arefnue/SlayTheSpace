@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: CardTest (3)
+  m_Name: 6-ReversePoisonAttack
   m_EditorClassIdentifier: 
-  myID: 3
-  myType: 1
-  myManaCost: 2
-  myName: Heal 2
-  myDescription: Heal 20
-  mySprite: {fileID: 21300000, guid: 439e07f5d3e752a4e9dda2e0c36ae939, type: 3}
-  damageValue: 0
-  healValue: 20
+  myID: 6
+  myType: 0
+  playerActionList:
+  - myPlayerActionType: 6
+    value: 2
+  myManaCost: 0
+  myName: Fresh Air
+  myDescription: Deal 2x your space dust to target. Clear your space dust
+  mySprite: {fileID: 21300000, guid: d0577cc6c2d41d241ad6e1d01d12a270, type: 3}
