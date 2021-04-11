@@ -88,20 +88,29 @@ namespace Arif.Scripts
             {
                 return;
             }
-
+            
             if (!isPoison)
             {
-                blockStack -= damage;
-                if (blockStack<0)
+                if (blockStack>0)
                 {
-                    _currentHealth -= Mathf.Abs(blockStack);
+                    blockStack -= damage;
+                    if (blockStack<0)
+                    {
+                        _currentHealth -= Mathf.Abs(blockStack);
+                    }
                 }
+                else
+                {
+                    _currentHealth -= damage;
+                }
+               
             }
             else
             {
                 _currentHealth -= damage;
             }
-            
+
+
             if (_currentHealth<=0)
             {
                 _currentHealth = 0;

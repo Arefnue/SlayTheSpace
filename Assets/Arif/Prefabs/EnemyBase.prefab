@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 735061152}
   - component: {fileID: 3884688637248816172}
   m_Layer: 12
-  m_Name: Enemy
+  m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,20 +51,24 @@ MonoBehaviour:
   myActions:
   - myEnemyActionType: 0
     targetPlayer: 1
-    value: 10
-    actionSprite: {fileID: 21300000, guid: a6e6c82b6683bb84f9cea83f6f68b0a1, type: 3}
-  - myEnemyActionType: 0
+    value: 0
+    actionSprite: {fileID: 21300000, guid: f343d5cc503285f4f8722be86496e6c2, type: 3}
+  - myEnemyActionType: 1
+    targetPlayer: 0
+    value: 0
+    actionSprite: {fileID: 21300000, guid: e9cc0caa2c32e4b47a904d0d9965940b, type: 3}
+  - myEnemyActionType: 2
     targetPlayer: 1
-    value: 5
-    actionSprite: {fileID: 21300000, guid: 41dadc79be491a84b8f616a58b9b8409, type: 3}
-  - myEnemyActionType: 1
+    value: 0
+    actionSprite: {fileID: 21300000, guid: 3c058e96e76dab840b60e6550c8583e1, type: 3}
+  - myEnemyActionType: 3
     targetPlayer: 0
-    value: 10
-    actionSprite: {fileID: 21300000, guid: bd07c15ebf3d4b3478f905ca3376fc57, type: 3}
-  - myEnemyActionType: 1
+    value: 0
+    actionSprite: {fileID: 21300000, guid: 69822eadb9caf4448adb4d2cc0301fcd, type: 3}
+  - myEnemyActionType: 4
     targetPlayer: 0
-    value: 20
-    actionSprite: {fileID: 21300000, guid: 519713da14f7d194cb0c9a596a092f34, type: 3}
+    value: 0
+    actionSprite: {fileID: 21300000, guid: bbd46bddd29f33e47ac1545850fddea4, type: 3}
   myHealth: {fileID: 0}
   actionImage: {fileID: 6435177381928672741}
   myCanvas: {fileID: 2165708306014641847}
@@ -668,7 +672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aac9775a8461a9c4e8abda650788e491, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c058e96e76dab840b60e6550c8583e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -744,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 545a45c8a3921a248b14141a2ae81357, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69822eadb9caf4448adb4d2cc0301fcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -819,7 +823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 41dadc79be491a84b8f616a58b9b8409, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f343d5cc503285f4f8722be86496e6c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
