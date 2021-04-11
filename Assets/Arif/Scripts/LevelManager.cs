@@ -32,12 +32,18 @@ namespace Arif.Scripts
                     case LevelState.PlayerTurn:
                         HandManager.instance.handController.mana = 3;
                         DrawCards(drawCount);
+                        playerController.myHealth.TakeDamage(playerController.myHealth.poisonStack,true);
+                        
+                        playerController.myHealth.ClearBlock();
                         currentEnemy.ShowNextAction();
                         HandManager.instance.handController.canSelectCards = true;
                         break;
                     case LevelState.EnemyTurn:
                         DiscardHand();
+                        currentEnemy.myHealth.TakeDamage(currentEnemy.myHealth.poisonStack,true);
+                        currentEnemy.myHealth.ClearBlock();
                         currentEnemy.DoAction();
+                        
                         HandManager.instance.handController.canSelectCards = false;
                         break;
                     case LevelState.Finished:
@@ -57,7 +63,7 @@ namespace Arif.Scripts
         public Transform choiceParent;
         public List<Choice> choicesList;
         public bool isFinalLevel;
-        [HideInInspector]public EnemyBase currentEnemy;
+        public EnemyBase currentEnemy;
         
         [HideInInspector]public List<int> drawPile = new List<int>();
         [HideInInspector]public List<int> handPile = new List<int>();
@@ -69,6 +75,7 @@ namespace Arif.Scripts
         {
             instance = this;
             CurrentLevelState = LevelState.Prepare;
+            
         }
 
         private void Start()
@@ -121,6 +128,7 @@ namespace Arif.Scripts
 
         public void OnEnemyDeath()
         {
+            playerController.myHealth.SavePlayerStats();
             if (isFinalLevel)
             {
                 OnFinal();
@@ -179,6 +187,7 @@ namespace Arif.Scripts
 
         public void OnLevelStart()
         {
+            
             SetGameDeck();
             choiceParent.gameObject.SetActive(false);
             UIManager.instance.gameCanvas.SetActive(true);
@@ -192,6 +201,42 @@ namespace Arif.Scripts
                 cardBase.Discard();
             }
             HandManager.instance.handController.hand.Clear();
+        }
+
+        public void ExhaustRandomCard()
+        {
+            var targetCard = 0;
+            if (drawPile.Count>0)
+            {
+                targetCard = drawPile[Random.Range(0, drawPile.Count)];
+            }
+            else if (discardPile.Count>0)
+            {
+                targetCard = discardPile[Random.Range(0, discardPile.Count)];
+            }
+            else if (handPile.Count>0)
+            {
+                targetCard = handPile[Random.Range(0, handPile.Count)];
+                CardBase tCard = HandManager.instance.handController.hand[0];
+                foreach (var cardBase in HandManager.instance.handController.hand)
+                {
+                    if (cardBase.myProfile.myID == targetCard)
+                    {
+                        tCard = cardBase;
+                        break;
+                    }
+                }
+                HandManager.instance.handController.hand?.Remove(tCard);
+            }
+            else
+            {
+                LoseGame();
+            }
+
+            drawPile?.Remove(targetCard);
+            handPile?.Remove(targetCard);
+            discardPile?.Remove(targetCard);
+            UIManager.instance.SetPileTexts();
         }
         
         private void ReshuffleDiscardPile()

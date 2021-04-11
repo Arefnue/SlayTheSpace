@@ -74,6 +74,11 @@ namespace Arif.Scripts
             LevelManager.instance.DiscardCard(this);
             StartCoroutine("Dissolve");
         }
+
+        public void Exhaust()
+        {
+            StartCoroutine("Dissolve");
+        }
         
         protected IEnumerator Dissolve() {
             Vector2 t = Vector2.zero - _dissolveOffset;

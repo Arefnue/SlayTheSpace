@@ -13,8 +13,9 @@ namespace Arif.Scripts
         public List<int> initalDeckList;
         public List<int> myDeckIDList;
         public List<CardSO> choiceCardList;
-        private int _currentEnemyIndex=0;
         [HideInInspector] public List<CardBase> choiceContainer = new List<CardBase>();
+        public float playerCurrentHealth=100;
+        public float playerMaxHealth=100;
         private void Awake()
         {
             if (instance == null)
@@ -60,6 +61,13 @@ namespace Arif.Scripts
             return null;
         }
 
+        public void ResetManager()
+        {
+            myDeckIDList = initalDeckList;
+            choiceContainer?.Clear();
+            playerCurrentHealth = 100;
+            playerMaxHealth = 100;
+        }
         public void NextLevel()
         {
            
@@ -67,15 +75,13 @@ namespace Arif.Scripts
             
             if (i>=SceneManager.sceneCountInBuildSettings)
             {
-                myDeckIDList = initalDeckList;
+                GameManager.instance.ResetManager();
                 SceneManager.LoadScene(0);
             }
             else
             {
                 SceneManager.LoadScene(i);
             }
-            
-
         }
     }
 }
